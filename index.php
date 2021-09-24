@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +16,14 @@
             <h1>Zakat Calculator</h1>
         </div>
         <?php 
-
+                if (isset($_POST['reset'])) {
+                    session_destroy();
+                    header('location:index.php');
+                }
                 if (isset($_POST['calculate'])) {
                     
+                    session_destroy();
+
                     $num1    = $_POST['num1'];
                     $num2    = $_POST['num2'];
                     $num3    = $_POST['num3'];
@@ -23,6 +31,35 @@
                     $num5    = $_POST['num5'];
                     $num6    = $_POST['num6'];
                     $num7    = $_POST['num7'];
+
+                    if(empty($_SESSION['num1'])){
+                            $_SESSION['num1'] = $num1;
+
+                        }
+                    if(empty($_SESSION['num2'])){
+                            $_SESSION['num2'] = $num2;
+
+                        }
+                    if(empty($_SESSION['num3'])){
+                            $_SESSION['num3'] = $num3;
+
+                        }
+                    if(empty($_SESSION['num4'])){
+                            $_SESSION['num4'] = $num4;
+
+                        }
+                    if(empty($_SESSION['num5'])){
+                            $_SESSION['num5'] = $num5;
+
+                        }
+                    if(empty($_SESSION['num6'])){
+                            $_SESSION['num6'] = $num6;
+
+                        }
+                    if(empty($_SESSION['num7'])){
+                            $_SESSION['num7'] = $num7;
+
+                        }
 
                     if ($num1 == "" || $num2 == "" || $num3 == "" || $num4 == "" || $num5 == "" || $num6 == "" || $num7 == "" ) {?>
                         <div id="menu">
@@ -39,6 +76,9 @@
                             <ul>
                                 <li>
                                     <a style="color:#3aff3a;">Nisab (updated <?php echo date('Y-m-d'); ?> BDT ) =  <?php echo $total_num/100*2.5; ?></a>
+                                </li>
+                                <li>
+                                    <button style="cursor: pointer; width: 70px;" onClick="window.print()">Print</button>
                                 </li>
                             </ul>
                         </div>
@@ -59,36 +99,65 @@
             <form class="post-form" action="" method="post">
                 <div class="form-group">
                     <label>Value of Gold (৳)</label>
-                    <input type="number" name="num1" value="0" />
+                    <input type="number" name="num1" value="<?php if(empty($_SESSION['num1'])){
+    echo '0';
+  }else{
+    echo $_SESSION['num1'];
+  } ?>" />
                 </div>
                 <div class="form-group">
                     <label>Value of Silver (৳)</label>
-                    <input type="number" name="num2" value="0" />
+                    <input type="number" name="num2" value="<?php if(empty($_SESSION['num2'])){
+    echo '0';
+  }else{
+    echo $_SESSION['num2'];
+  } ?>" />
                 </div>
                 <div class="form-group">
                     <label>In hand and in bank accounts</label>
-                    <input type="number" name="num3" value="0" />
+                    <input type="number" name="num3" value="<?php if(empty($_SESSION['num3'])){
+    echo '0';
+  }else{
+    echo $_SESSION['num3'];
+  } ?>" />
                 </div>
                 <div class="form-group">
                     <label>Deposited for ( e.g. Hajj )</label>
-                    <input type="number" name="num4" value="0" />
+                    <input type="number" name="num4" value="<?php if(empty($_SESSION['num4'])){
+    echo '0';
+  }else{
+    echo $_SESSION['num4'];
+  } ?>" />
                 </div>
                 <div class="form-group">
                     <label>Given out in loans</label>
-                    <input type="number" name="num5" value="0" />
+                    <input type="number" name="num5" value="<?php if(empty($_SESSION['num5'])){
+    echo '0';
+  }else{
+    echo $_SESSION['num5'];
+  } ?>" />
                 </div>
                 <div class="form-group">
                     <label>Business investments, shares, saving certificates, pensions</label>
-                    <input type="number" name="num6" value="0" />
+                    <input type="number" name="num6" value="<?php if(empty($_SESSION['num6'])){
+    echo '0';
+  }else{
+    echo $_SESSION['num6'];
+  } ?>" />
                 </div>
                 <div class="form-group">
                     <label>Deposited for ( e.g. Hajj )</label>
-                    <input type="number" name="num7" value="0" />
+                    <input type="number" name="num7" value="<?php if(empty($_SESSION['num7'])){
+    echo '0';
+  }else{
+    echo $_SESSION['num7'];
+  } ?>" />
                 </div>
                 <input class="submit" name="calculate" type="submit" value="Calculate"  />
-                <input class="submit" name="reset" type="reset" value="Reset"  />
+                <input class="submit" name="reset" type="submit" value="Reset"  />
             </form>
         </div>
     </div>
+    <p style="text-align:center; margin-top: 100px;">The app is created by <a href="https://www.facebook.com/APURBO.STAR/" style="color:blue; text-decoration:none;">APURBO</a></p>
 </body>
 </html>
