@@ -8,6 +8,11 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Zakat Calculator</title>
+  
+  <link rel="stylesheet" href="./bootstrap-4.4.1-dist/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="./bootstrap-4.4.1-dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -96,65 +101,65 @@ session_start();
         </div> -->
         <div id="main-content">
 
-            <form class="post-form" action="" method="post">
+            <form class="post-form shadow-lg" action="" method="post">
                 <div class="form-group">
                     <label>Value of Gold (৳)</label>
-                    <input type="number" name="num1" value="<?php if(empty($_SESSION['num1'])){
-    echo '0';
-  }else{
-    echo $_SESSION['num1'];
-  } ?>" />
+                    <input class="form-control" type="number" name="num1" value="<?php if(empty($_SESSION['num1'])){
+                        echo '0';
+                    }else{
+                        echo $_SESSION['num1'];
+                    } ?>" />
                 </div>
                 <div class="form-group">
                     <label>Value of Silver (৳)</label>
-                    <input type="number" name="num2" value="<?php if(empty($_SESSION['num2'])){
-    echo '0';
-  }else{
-    echo $_SESSION['num2'];
-  } ?>" />
+                    <input class="form-control" type="number" name="num2" value="<?php if(empty($_SESSION['num2'])){
+                        echo '0';
+                    }else{
+                        echo $_SESSION['num2'];
+                    } ?>" />
                 </div>
                 <div class="form-group">
                     <label>In hand and in bank accounts</label>
-                    <input type="number" name="num3" value="<?php if(empty($_SESSION['num3'])){
-    echo '0';
-  }else{
-    echo $_SESSION['num3'];
-  } ?>" />
+                    <input class="form-control" type="number" name="num3" value="<?php if(empty($_SESSION['num3'])){
+                        echo '0';
+                    }else{
+                        echo $_SESSION['num3'];
+                    } ?>" />
                 </div>
                 <div class="form-group">
                     <label>Deposited for ( e.g. Hajj )</label>
-                    <input type="number" name="num4" value="<?php if(empty($_SESSION['num4'])){
-    echo '0';
-  }else{
-    echo $_SESSION['num4'];
-  } ?>" />
+                    <input class="form-control" type="number" name="num4" value="<?php if(empty($_SESSION['num4'])){
+                            echo '0';
+                        }else{
+                            echo $_SESSION['num4'];
+                        } ?>" />
                 </div>
                 <div class="form-group">
                     <label>Given out in loans</label>
-                    <input type="number" name="num5" value="<?php if(empty($_SESSION['num5'])){
-    echo '0';
-  }else{
-    echo $_SESSION['num5'];
-  } ?>" />
+                    <input class="form-control" type="number" name="num5" value="<?php if(empty($_SESSION['num5'])){
+                            echo '0';
+                        }else{
+                            echo $_SESSION['num5'];
+                        } ?>" />
                 </div>
                 <div class="form-group">
                     <label>Business investments, shares, saving certificates, pensions</label>
-                    <input type="number" name="num6" value="<?php if(empty($_SESSION['num6'])){
-    echo '0';
-  }else{
-    echo $_SESSION['num6'];
-  } ?>" />
+                    <input class="form-control" type="number" name="num6" value="<?php if(empty($_SESSION['num6'])){
+                            echo '0';
+                        }else{
+                            echo $_SESSION['num6'];
+                        } ?>" />
                 </div>
                 <div class="form-group">
                     <label>Deposited for ( e.g. Hajj )</label>
-                    <input type="number" name="num7" value="<?php if(empty($_SESSION['num7'])){
-    echo '0';
-  }else{
-    echo $_SESSION['num7'];
-  } ?>" />
+                    <input class="form-control" type="number" name="num7" value="<?php if(empty($_SESSION['num7'])){
+                            echo '0';
+                        }else{
+                            echo $_SESSION['num7'];
+                        } ?>" />
                 </div>
-                <input class="submit" name="calculate" type="submit" value="Calculate"  />
-                <input class="submit" name="reset" type="submit" value="Reset"  />
+                <input class="btn btn-success" name="calculate" type="submit" value="Calculate"  />
+                <input class="btn btn-danger" name="reset" type="submit" value="Reset"  />
             </form>
         </div>
     </div>
